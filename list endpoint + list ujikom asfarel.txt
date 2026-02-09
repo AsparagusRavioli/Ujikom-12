@@ -1,0 +1,66 @@
+ujikom : 
+- Admin : 
+CRUD Laporan masyarakat
+Approvement laporan masyarakat 
+Admin bisa ngeset tanggal untuk tindak lanjut 
+CRUD User
+- Petugas : Liat laporan masyarakat by approvment dari admin Ada task dari admin 
+- Masyarakat : Login/Register 
+CRUD Laporan 
+Cek Laporan
+
+lumayan bags >>
+user
+| Method | Route              | Input Body                                                               |
+| ------ | ------------------ | ------------------------------------------------------------------------ |
+| POST   | `/users/register`  | `{ "id": 1, "nama": "Asep", "email": "a@a.com" }`                        |
+| POST   | `/users/laporan`   | `{ "id": 101, "userId": 1, "judul": "Jalan rusak", "isi": "Berlubang" }` |
+| GET    | `/users/laporan/1` | -                                                                        |
+| Fungsi                      | Method | Endpoint            | Body                         | Keterangan                              |
+| --------------------------- | ------ | ------------------- | ---------------------------- | --------------------------------------- |
+| Register user               | POST   | `/user/register`    | `{ id, nama, email }`        | Daftar akun baru                        |
+| Buat laporan                | POST   | `/user/laporan`     | `{ id, userId, judul, isi }` | User membuat laporan                    |
+| Lihat laporan milik sendiri | GET    | `/user/laporan/:id` | ga ada                       | :id = userId                            |
+| Update laporan              | PUT    | `/user/laporan/:id` | `{ judul, isi }`             | Hanya bisa update laporan milik sendiri |
+| Delete laporan              | DELETE | `/user/laporan/:id` | ga ada                       | Hapus laporan user                      |
+
+admin
+| Method | Route                        | Input                         |
+| ------ | ---------------------------- | ----------------------------- |
+| GET    | `/admin/users`               | lihat semua user              |
+| GET    | `/admin/laporan`             | lihat semua laporan           |
+| PUT    | `/admin/laporan/approve/101` | approve laporan               |
+| PUT    | `/admin/laporan/tanggal/101` | `{ "tanggal": "2026-02-01" }` |
+petugas
+| Tujuan                                             | Method | Route               | Body |
+| -------------------------------------------------- | ------ | ------------------- | ---- |
+| Lihat laporan yg sudah di-approve admin            | GET    | `/petugas/approved` | -    |
+| Lihat laporan yg sudah punya tanggal tindak lanjut | GET    | `/petugas/task`     | -    |
+
+https://muhammadasfarell-1371962.postman.co/workspace/Muhammad-Asfarel's-Workspace~05f6f2ec-1706-41e9-86df-645a861cf4b6/request/51766320-aa4bdac5-9d77-43e6-82ec-236a54e6d82a?action=share&creator=51766320
+
+ujikom :
+-admin : 
+approvment ke petugas : done
+crud (delete & update , user dan laporan) : done
+read (laporan & user all/by id) : done
+set tanggal laporan biar petugas bisa set task : done
+
+-petugas :
+bisa jalanin task yang di approve admin : done
+cek task / approved laporan : done
+
+- Users/Masyarakat 
+crud laporan : done
+cek history laporan apa saja yang dibuat : done
+login/register : done
+
+tinggal database mysql laragon , terus front end nya pakai react
+
+// Daftar email khusus admin & petugas
+  const adminEmails = ["admin@ujikom.com"];
+  const petugasEmails = ["petugas1@ujikom.com", "petugas2@ujikom.com"];
+
+git clone https://github.com/username/ujikom-12.git
+
+https://muhammadasfarell-1371962.postman.co/workspace/Muhammad-Asfarel's-Workspace~05f6f2ec-1706-41e9-86df-645a861cf4b6/request/51766320-51887f25-f08a-4767-b837-1fb287af3518?action=share&creator=51766320
